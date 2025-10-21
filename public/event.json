@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "Event Name": "Hurdle Harmony Finals",
+    "Event Type": "Hurdle race",
+    "Event Date": "2024-12-07",
+    "Description": "Championship finale of the Hurdle Harmony series.",
+    "Creator Email": "hannah.parker@example.com",
+    "Creator Name": "Hannah Parker",
+    "Picture": "https://i.ibb.co.com/RTKyTGbz/hurdle-race.jpg"
+  },
+  {
+    "id": 2,
+    "Event Name": "Cricket Clash Cup",
+    "Event Type": "Cricket",
+    "Event Date": "2025-03-15",
+    "Description": "Annual inter-club T20 cricket tournament featuring top local teams.",
+    "Creator Email": "rajiv.mehta@example.com",
+    "Creator Name": "Rajiv Mehta",
+    "Picture": "https://i.ibb.co.com/Cpm590Sw/cricket.webp"
+  },
+  {
+    "id": 3,
+    "Event Name": "Summit Seekers Hike",
+    "Event Type": "Hiking",
+    "Event Date": "2025-05-10",
+    "Description": "Guided group hike to the peak of Mount Alder with scenic views and nature talks.",
+    "Creator Email": "lena.woods@example.com",
+    "Creator Name": "Lena Woods",
+    "Picture": "https://i.ibb.co.com/M5nC4517/hiking.webp"
+  },
+  {
+    "id": 4,
+    "Event Name": "City Marathon Challenge",
+    "Event Type": "Marathon",
+    "Event Date": "2025-04-20",
+    "Description": "Full 42.2 km city marathon through downtown streets and waterfront paths.",
+    "Creator Email": "marco.santos@example.com",
+    "Creator Name": "Marco Santos",
+    "Picture": "https://i.ibb.co.com/MzHPK1X/marathon.jpg"
+  },
+  {
+    "id": 5,
+    "Event Name": "Beach Volleyball Bash",
+    "Event Type": "Beach Volleyball",
+    "Event Date": "2025-07-12",
+    "Description": "Sandy showdown with doubles teams competing for the summer title.",
+    "Creator Email": "tina.bay@example.com",
+    "Creator Name": "Tina Bay",
+    "Picture": "https://i.ibb.co.com/QFS2bbx1/beach-volleyball.webp"
+  },
+  {
+    "id": 6,
+    "Event Name": "Urban Obstacle Race",
+    "Event Type": "Obstacle Course",
+    "Event Date": "2025-06-28",
+    "Description": "Grit-testing race through city parks with walls, mud pits, and rope climbs.",
+    "Creator Email": "devon.cross@example.com",
+    "Creator Name": "Devon Cross",
+    "Picture": "https://i.ibb.co.com/vCxCtLm3/obstacle-race.jpg"
+  },
+  {
+    "id": 7,
+    "Event Name": "Trailblazer Ultra Run",
+    "Event Type": "Trail Running",
+    "Event Date": "2025-09-06",
+    "Description": "50K ultra-marathon through forest trails and mountain ridges.",
+    "Creator Email": "elena.trail@example.com",
+    "Creator Name": "Elena Trail",
+    "Picture": "https://i.ibb.co.com/5XjY8qZ8/ultra-race.jpg"
+  },
+  {
+    "id": 8,
+    "Event Name": "Pickleball Palooza",
+    "Event Type": "Pickleball",
+    "Event Date": "2025-08-03",
+    "Description": "Community tournament for all skill levels on outdoor courts.",
+    "Creator Email": "gary.smith@example.com",
+    "Creator Name": "Gary Smith",
+    "Picture": "https://i.ibb.co.com/j9HtwVby/pickeball.webp"
+  },
+  {
+    "id": 9,
+    "Event Name": "Rock Climbing Rumble",
+    "Event Type": "Rock Climbing",
+    "Event Date": "2025-10-18",
+    "Description": "Indoor bouldering competition with beginner to expert categories.",
+    "Creator Email": "maya.stone@example.com",
+    "Creator Name": "Maya Stone",
+    "Picture": "https://i.ibb.co.com/MDFk5fzH/rock-climibing.jpg"
+  },
+  {
+    "id": 10,
+    "Event Name": "Sprint Triathlon Series",
+    "Event Type": "Triathlon",
+    "Event Date": "2025-07-27",
+    "Description": "Sprint-distance triathlon: 750m swim, 20km bike, 5km run.",
+    "Creator Email": "alex.enduro@example.com",
+    "Creator Name": "Alex Enduro",
+    "Picture": "https://i.ibb.co.com/jdVhhLG/sprint-trialthlon.webp"
+  },
+  {
+    "id": 11,
+    "Event Name": "Disc Golf Derby",
+    "Event Type": "Disc Golf",
+    "Event Date": "2025-06-15",
+    "Description": "18-hole disc golf tournament at Riverside Park Course.",
+    "Creator Email": "jordan.frisbee@example.com",
+    "Creator Name": "Jordan Frisbee",
+    "Picture": "https://i.ibb.co.com/spkF3nKz/disc-golf.jpg"
+  },
+  {
+    "id": 12,
+    "Event Name": "Open Water Swim Fest",
+    "Event Type": "Open Water Swimming",
+    "Event Date": "2025-08-17",
+    "Description": "1.5-mile swim in Crystal Lake with safety escorts and timing chips.",
+    "Creator Email": "nina.aqua@example.com",
+    "Creator Name": "Nina Aqua",
+    "Picture": "https://i.ibb.co.com/wh2hGY7d/open-water-swim.jpg"
+  }
+]

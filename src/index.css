@@ -1,0 +1,85 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quantico&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quantico&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Michroma&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quantico&display=swap');
+
+
+
+:root {
+    --primary: #00778B;
+    --accent: #FF6B35;
+    --bg: #FFFFFF;
+    --text: #2D2D2D;
+    --light-bg: #F8F9FA;
+    --border: #E0E0E0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text);
+    background-color: var(--bg);
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-family: 'Alan Sans', sans-serif;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+h2 {
+    font-family: "Montserrat", sans-serif;
+
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+
+main {
+    background-color: #e6fbff85;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #e6fbff85;
+    border-bottom: 1px solid #1c8097;
+    box-shadow: 1px 4px 3px #93dbeb;
+    /* background-color: #88d7e9; */
+    height: 5vh;
+
+}
+
+.footer {
+    background-color: #87cddd86;
+    /* border-top: 2px solid #1c8097; */
+    /* box-shadow: 1px 4px 3px #93dbeb; */
+    height: 15vh;
+    /* border-top: 2px solid #2093ac; */
+}

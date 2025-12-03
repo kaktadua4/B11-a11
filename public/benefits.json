@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Diverse Sports",
+    "icon": "🏸",
+    "description": "From track and field to water sports, find hundreds of events."
+  },
+  {
+    "title": "Easy Booking",
+    "icon": "🎟️",
+    "description": "Secure your spot in seconds with our streamlined checkout."
+  },
+  {
+    "title": "Real-Time Updates",
+    "icon": "🔔",
+    "description": "Get instant notifications on event changes and results."
+  }
+]

@@ -10,6 +10,8 @@ import Erorr from './Pages/Erorr/Erorr.jsx'
 import CreateEvent from './Pages/CreateEvent/CreateEvent.jsx'
 import Register from './Pages/Register/Register.jsx'
 import Login from './Pages/Login/Login.jsx'
+import EventsPage from './Pages/Event/EventsPage.jsx'
+import User from './Pages/User/User.jsx'
 
 const router = createBrowserRouter(
   [
@@ -31,6 +33,14 @@ const router = createBrowserRouter(
         ,{
           path:'login',
           Component: Login,
+        }
+        ,{
+          path: 'events',
+          Component: EventsPage,
+        }
+        ,{
+          path: 'user',
+          Component: User,
         }
       ]
     },

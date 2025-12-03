@@ -8,7 +8,7 @@ const Login = () => {
     const { LoginUser } = use(AuthContext);
 
 
-    const handleRegister = e => {
+    const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -37,7 +37,7 @@ const Login = () => {
                 </div>
                 <div className='flex-col border mx-2 border-[#104956] rounded-lg shadow-lg shadow-2xl  flex w-11/12 md:w-2/5 '>
                     <div className="w-full ">
-                        <form onSubmit={handleRegister} >
+                        <form onSubmit={handleLogin} >
                             <fieldset className="flex flex-col gap-6 p-6">
                                 <label className="label font-bold">Email
                                 </label>

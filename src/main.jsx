@@ -12,6 +12,9 @@ import Register from './Pages/Register/Register.jsx'
 import Login from './Pages/Login/Login.jsx'
 import EventsPage from './Pages/Event/EventsPage.jsx'
 import User from './Pages/User/User.jsx'
+import EventDetails from './Pages/Event/EventDetails.jsx'
+import PrivateRoute from './Routes/PrivateRoute.jsx'
+
 
 const router = createBrowserRouter(
   [
@@ -23,22 +26,28 @@ const router = createBrowserRouter(
           index: true,
           Component: Home,
         },
-        {
-          path :'create-event',
-          Component: CreateEvent,
-        },{
-          path:'register',
+         {
+          path: 'register',
           Component: Register,
         }
-        ,{
-          path:'login',
+        , {
+          path: 'login',
           Component: Login,
         }
-        ,{
+        , {
           path: 'events',
           Component: EventsPage,
+        },
+        {
+          path: "events/:id",
+          Component: EventDetails,
         }
-        ,{
+        ,
+        {
+          path: 'create-event',
+          element: <PrivateRoute><CreateEvent /></PrivateRoute>,
+        },
+        {
           path: 'user',
           Component: User,
         }
@@ -57,7 +66,7 @@ createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <RouterProvider router={router}>
 
-    </RouterProvider>
+      </RouterProvider>
     </AuthProvider>
   </StrictMode>,
 )

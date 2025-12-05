@@ -1,12 +1,27 @@
 import React, { use } from 'react';
-import { NavLink } from 'react-router';
+import { NavLink, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 import auth from '../../firebase/firebase.init';
 
 
 
 const Register = () => {
+const {signInWithGoogle} = use(AuthContext);
+const location = useLocation();
+const navigate = useNavigate();
+const from = location.state || '/';
 
+
+console.log('location in sign in page', location);
+const handleGoogleSignIn = () => {
+    signInWithGoogle()
+    .then(result => {   
+        console.log(result.user);
+        navigate(from);
+    })
+    .catch(error => {
+        console.error(error);
+    });}
 
 const {createUser} = use(AuthContext)
 
@@ -26,6 +41,7 @@ const {createUser} = use(AuthContext)
 createUser(auth, email, password)
 .then(result =>{
     console.log(result.user);
+    navigate(from);
 })
 .catch(error => {
     console.error(error);
@@ -58,7 +74,7 @@ createUser(auth, email, password)
                                 </label>
                                 <input name='password' type="password" className="border border-[#1c8097] rounded-lg p-2" placeholder="Password" />
                                 <button className="border-2 border-[#104956] rounded-lg p-2 bg-[#1c8097] text-white w-full mt-4" type='submit'>Register</button>
-                                <button className="border-2 flex justify-center items-center border-[#104956] rounded-lg w-full mt-4">
+                                <button onClick={handleGoogleSignIn} className="border-2 p-1 gap-4 flex justify-center items-center border-[#104956] rounded-lg w-full mt-4">
                                     <img className='w-8' src="/google.png" alt="" />
                                     <p>Sign in with Google</p>
                                 </button>

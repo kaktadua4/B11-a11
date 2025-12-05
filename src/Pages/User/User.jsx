@@ -2,9 +2,9 @@ import React from 'react';
 
 const User = () => {
     return (
-        <div>
-            Hello this user page .
-        </div>
+        <div className='min-h-screen'>
+
+         </div>
     );
 };
 

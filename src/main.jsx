@@ -14,7 +14,7 @@ import EventsPage from './Pages/Event/EventsPage.jsx'
 import User from './Pages/User/User.jsx'
 import EventDetails from './Pages/Event/EventDetails.jsx'
 import PrivateRoute from './Routes/PrivateRoute.jsx'
-
+import { Toaster } from 'react-hot-toast'
 
 const router = createBrowserRouter(
   [
@@ -26,7 +26,7 @@ const router = createBrowserRouter(
           index: true,
           Component: Home,
         },
-         {
+        {
           path: 'register',
           Component: Register,
         }
@@ -39,8 +39,9 @@ const router = createBrowserRouter(
           Component: EventsPage,
         },
         {
-          path: "events/:id",
+          path: "/events/:id",
           Component: EventDetails,
+          loader: ({params}) =>fetch (`http://localhost:3000/events/${params.id}`)
         }
         ,
         {
@@ -65,8 +66,8 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router}>
-
       </RouterProvider>
+      <Toaster position="top-right" />
     </AuthProvider>
   </StrictMode>,
 )

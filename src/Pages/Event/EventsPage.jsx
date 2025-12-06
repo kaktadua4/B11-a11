@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { HiMagnifyingGlass } from 'react-icons/hi2';
+import { Link } from 'react-router';
 
 const EventsPage = () => {
     const [allEvents, setAllEvents] = useState([]);
@@ -9,14 +10,18 @@ const EventsPage = () => {
     const [filterType, setFilterType] = useState('All');
 
     // Fetch events from JSON
-    useEffect(() => {
-        fetch('/event.json')
-            .then(res => res.json())
+     useEffect(() => {
+        fetch('http://localhost:3000/events')
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to fetch events');
+                return res.json();
+            })
             .then(data => {
                 setAllEvents(data || []);
                 setFilteredEvents(data || []);
             })
-            .catch(() => {
+            .catch((error) => {
+                console.error('Error fetching events:', error);
                 setAllEvents([]);
                 setFilteredEvents([]);
             });
@@ -183,13 +188,15 @@ const EventsPage = () => {
                                     </div>
 
                                     {/* CTA Button */}
-                                    <motion.button
+                                    < Link to={`/events/${ev._id}`} >
+                                        <motion.button
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                         className='w-full bg-gradient-to-r from-[#28b7d7] to-[#1c8097] text-white font-bold py-2 rounded-lg hover:from-[#3dbedb] hover:to-[#2093ac] transition duration-300 shadow-lg'
                                     >
                                         View Details
                                     </motion.button>
+                                    </Link>
                                 </div>
                             </motion.div>
                         ))

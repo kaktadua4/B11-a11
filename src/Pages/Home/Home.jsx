@@ -8,48 +8,52 @@ const Home = () => {
     const [benefits, setBenefits] = useState([]);
     const [testimonials, setTestimonials] = useState([]);
     const [bannerSlides, setBannerSlides] = useState([]);
-    // Refs for hold-to-navigate functionality
     const holdIntervalRef = useRef(null);
 
-
-    // load events from public/event.json
+    // Fetch events from API
     useEffect(() => {
-        fetch('/event.json')
+        fetch('http://localhost:3000/events')
             .then(res => res.json())
             .then(data => setMockEvents(data || []))
-            .catch(() => setMockEvents([]));
+            .catch((error) => {
+                console.error('Error fetching events:', error);
+                setMockEvents([]);
+            });
     }, []);
 
-
-    // Fetch data from banner.json
-
+    // Fetch banner slides from API
     useEffect(() => {
-        fetch('banner.json')
+        fetch('http://localhost:3000/banner')
             .then((res) => res.json())
-            .then((data) => { setBannerSlides(data) })
+            .then((data) => { setBannerSlides(data || []) })
             .catch((error) => {
-                console.log(error);
-            }
-            )
-    }, [])
+                console.error('Error fetching banner:', error);
+                setBannerSlides([]);
+            })
+    }, []);
 
-    // Fetch all data on component mount
+    // Fetch benefits and testimonials from API
     useEffect(() => {
         // Fetch benefits
-        fetch('/benefits.json')
+        fetch('http://localhost:3000/benefits')
             .then(res => res.json())
             .then(data => setBenefits(data || []))
-            .catch(() => setBenefits([]));
+            .catch((error) => {
+                console.error('Error fetching benefits:', error);
+                setBenefits([]);
+            });
 
         // Fetch testimonials
-        fetch('/testimonials.json')
+        fetch('http://localhost:3000/testimonials')
             .then(res => res.json())
             .then(data => setTestimonials(data || []))
-            .catch(() => setTestimonials([]));
+            .catch((error) => {
+                console.error('Error fetching testimonials:', error);
+                setTestimonials([]);
+            });
     }, []);
 
     const featuredEvents = mockEvents.slice(0, 6);
-
 
 
     // Clean up interval on unmount
@@ -60,9 +64,6 @@ const Home = () => {
             }
         };
     }, []);
-
-    // Update navigation buttons with mouse hold events
-
 
 
 

@@ -6,7 +6,7 @@ import { AuthContext } from '../../Context/AuthContext';
 const Login = () => {
 
     const { LoginUser } = use(AuthContext);
-
+    const { signInWithGoogle } = use(AuthContext);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -24,10 +24,17 @@ const Login = () => {
             .catch(error => {
                 console.error(error);
             });
-
-
     }
 
+
+    const handleGoogleSignIn = () => {
+    signInWithGoogle()
+    .then(result => {   
+        console.log(result.user);
+    })
+    .catch(error => {
+        console.error(error);
+    });}
     return (
         <main className='text-[#1c8097] '>
             <div className='flex  justify-center items-center h-screen flex-col'>
@@ -46,7 +53,7 @@ const Login = () => {
                                 </label>
                                 <input name='password' type="password" className="border border-[#1c8097] rounded-lg p-2" placeholder="Password" />
                                 <button className="border-2 border-[#104956] rounded-lg p-2 bg-[#1c8097] text-white w-full mt-4" type='submit'>Login</button>
-                                <button className="border-2 flex justify-center items-center border-[#104956] rounded-lg w-full mt-4">
+                                <button onClick={handleGoogleSignIn} className="border-2 flex justify-center items-center border-[#104956] rounded-lg w-full mt-4">
                                     <img className='w-8' src="/google.png" alt="" />
                                     <p>Login with Google</p>
                                 </button>

@@ -3,9 +3,12 @@ import { AuthContext } from '../Context/AuthContext';
 import { Navigate, useLocation } from 'react-router';
 
 const PrivateRoute = ({ children }) => {
-   const { user } = use(AuthContext);
+   const { user , loading } = use(AuthContext);
    const location = useLocation();
-console.log(location.pathname);
+
+   if (loading) {
+      return <div className='loading loading-ring loading-xl'>Loading...</div>;
+   }
 
 
    if (!user) {

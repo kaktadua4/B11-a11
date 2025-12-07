@@ -1,8 +1,13 @@
-import React from 'react';
-import { useLoaderData, useNavigate } from 'react-router';
+import React, { useState, useContext } from 'react';  // Add useContext
+import { useParams, useLoaderData, useNavigate } from 'react-router';  // Fixed import
 import { motion } from 'framer-motion';
+import axios from 'axios';
+import { AuthContext } from '../../Context/AuthContext';  // Import your AuthContext
 
 const EventDetails = () => {
+    const { id } = useParams();
+    const { user } = useContext(AuthContext);  // Get current user from context (assuming it has 'user')
+    const userId = user?.uid || null;  // Set userId to Firebase UID if logged in
     const data = useLoaderData();
     const navigate = useNavigate();
 
@@ -16,6 +21,32 @@ const EventDetails = () => {
                 <p className='text-[#1c8097] text-xl font-semibold'>Event not found</p>
             </div>
         );
+    }
+
+    // Bookings event 
+    const handleBook = async () => {
+        if (!userId) {
+            alert('You must be logged in to book');
+            navigate('/login');  // Redirect to login if not logged in
+            return;
+        }
+        try {
+            const response = await axios.post('http://localhost:3000/bookings', {
+                userId,  // Now uses Firebase UID
+                eventId: id,
+                
+            });
+
+            alert('Booking successful!');
+            // Optional: Redirect or refresh, e.g., navigate('/user/bookings')
+        } catch (err) {
+            console.error('Error booking:', err);
+            alert('Failed to book');
+        }
+    };
+
+    if (!event) {
+        return <div>Loading...</div>;
     }
 
     return (
@@ -140,13 +171,25 @@ const EventDetails = () => {
                             transition={{ delay: 0.6 }}
                             className='flex gap-4'
                         >
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className='flex-1 bg-gradient-to-r from-[#28b7d7] to-[#1c8097] text-white font-bold py-3 px-8 rounded-lg hover:shadow-lg transition duration-300'
-                            >
-                                Book Now
-                            </motion.button>
+                            {userId ? (
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    onClick={handleBook}
+                                    className='flex-1 bg-gradient-to-r from-[#28b7d7] to-[#1c8097] text-white font-bold py-3 px-8 rounded-lg hover:shadow-lg transition duration-300'
+                                >
+                                    Book Now
+                                </motion.button>
+                            ) : (
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    onClick={() => navigate('/login')}
+                                    className='flex-1 bg-gradient-to-r from-[#28b7d7] to-[#1c8097] text-white font-bold py-3 px-8 rounded-lg hover:shadow-lg transition duration-300'
+                                >
+                                    Login to Book
+                                </motion.button>
+                            )}
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}

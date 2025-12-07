@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import { motion } from 'motion/react';
 import { HiMagnifyingGlass } from 'react-icons/hi2';
 import { Link } from 'react-router';
+import { AuthContext } from '../../Context/AuthContext';
 
 const EventsPage = () => {
     const [allEvents, setAllEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [filterType, setFilterType] = useState('All');
-
+    const { user } = use(AuthContext)
     // Fetch events from JSON
-     useEffect(() => {
+    useEffect(() => {
         fetch('http://localhost:3000/events')
             .then(res => {
                 if (!res.ok) throw new Error('Failed to fetch events');
@@ -126,11 +127,10 @@ const EventsPage = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => setFilterType(type)}
-                            className={`px-6 py-2 rounded-full font-semibold transition duration-300 ${
-                                filterType === type
+                            className={`px-6 py-2 rounded-full font-semibold transition duration-300 ${filterType === type
                                     ? 'bg-[#53c6df] text-[#0c3741] shadow-lg shadow-[#28b7d7]/50'
                                     : 'bg-[#7ed4e7] text-white hover:bg-[#53c6df] border border-[#2093ac]'
-                            }`}
+                                }`}
                         >
                             {type}
                         </motion.button>
@@ -170,7 +170,7 @@ const EventsPage = () => {
                                         transition={{ duration: 0.4 }}
                                     />
                                     {/* Overlay Badge */}
-                                    
+
                                 </div>
 
                                 {/* Content */}
@@ -184,18 +184,18 @@ const EventsPage = () => {
                                             <span className='font-semibold mr-2'>📅</span>
                                             <span className='text-sm'>{ev['Event Date']}</span>
                                         </div>
-                                        
+
                                     </div>
 
                                     {/* CTA Button */}
                                     < Link to={`/events/${ev._id}`} >
                                         <motion.button
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        className='w-full bg-gradient-to-r from-[#28b7d7] to-[#1c8097] text-white font-bold py-2 rounded-lg hover:from-[#3dbedb] hover:to-[#2093ac] transition duration-300 shadow-lg'
-                                    >
-                                        View Details
-                                    </motion.button>
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            className='w-full bg-gradient-to-r from-[#28b7d7] to-[#1c8097] text-white font-bold py-2 rounded-lg hover:from-[#3dbedb] hover:to-[#2093ac] transition duration-300 shadow-lg'
+                                        >
+                                            View Details
+                                        </motion.button>
                                     </Link>
                                 </div>
                             </motion.div>
